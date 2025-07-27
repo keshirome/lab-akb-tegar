@@ -1,28 +1,57 @@
-import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import Entypo from '@expo/vector-icons/Entypo';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
-import Feather from '@expo/vector-icons/Feather';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { ScrollView, Text } from "react-native";
 
 export default function Index() {
   return (
-    <ScrollView contentContainerStyle={{ padding: 20, flexGrow: 1 }}>
-      <Text style={{ fontSize: 40, marginBottom: 10 }}>Daftar 10 Ikon:</Text>
+    <ScrollView contentContainerStyle={{ padding: 20 }}>
+      <Text style={{ fontFamily: "funnel-bold", fontSize: 26, color: "blue" }}>
+        Muh. Ilham Akbar
+        {"\n"}105841105822
+      </Text>
 
-      <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
-        <AntDesign name="stepforward" size={200} color="Blue" />
-        <AntDesign name="stepbackward" size={200} color="Blue" />
-        <Entypo name="infinity" size={200} color="Blue" />
-        <Entypo name="aircraft" size={200} color="Blue" />
-        <EvilIcons name="bell" size={200} color="Blue" />
-        <EvilIcons name="calendar" size={200} color="Blue" />
-        <Feather name="activity" size={200} color="Blue" />
-        <Feather name="airplay" size={200} color="Blue" />
-        <FontAwesome name="heart" size={200} color="Blue" />
-        <FontAwesome name="star" size={200} color="Blue" />
-      </View>
+      <Text style={{ fontFamily: "inter-extrabold", fontSize: 24 }}>
+        Zelvia
+        {"\n"}105841105922
+      </Text>
+
+      <Text style={{ fontFamily: "montserrat-black", fontSize: 24 }}>
+        Andi Difta Rameyza Kayla
+        {"\n"}105841106022
+      </Text>
+
+      <Text style={{ fontFamily: "opensans-medium", fontSize: 24 }}>
+        Arsifah Ainun Aulia
+        {"\n"}105841106122
+      </Text>
+
+      <Text style={{ fontFamily: "roboto-condensed-bold", fontSize: 24 }}>
+        TEGAR SURYA PRAYOGA
+        {"\n"}105841106222
+      </Text>
+
+      <Text style={{ fontFamily: "funnel-variable", fontSize: 24 }}>
+        Andi Angke Riona Megawan
+        {"\n"}105841106322
+      </Text>
+
+      <Text style={{ fontFamily: "inter-italic-variable", fontSize: 24 }}>
+        A. Fachri
+        {"\n"}105841106522
+      </Text>
+
+      <Text style={{ fontFamily: "montserrat-italic-variable", fontSize: 24 }}>
+        Alizha Nur Arspandy
+        {"\n"}105841106722
+      </Text>
+
+      <Text style={{ fontFamily: "opensans-italic-variable", fontSize: 24 }}>
+        Yaumul Furqan
+        {"\n"}105841106822
+      </Text>
+
+      <Text style={{ fontFamily: "roboto-italic-variable", fontSize: 24 }}>
+        Baso Hamzah
+        {"\n"}105841106922
+      </Text>
     </ScrollView>
   );
 }
