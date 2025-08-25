@@ -1,36 +1,53 @@
-import { Stack } from "expo-router";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    // Static Fonts
-    "funnel-bold": require("../assets/fonts/FunnelDisplay-Bold.ttf"),
-    "inter-extrabold": require("../assets/fonts/Inter_18pt-ExtraBold.ttf"),
-    "montserrat-black": require("../assets/fonts/Montserrat-Black.ttf"),
-    "opensans-medium": require("../assets/fonts/OpenSans_Condensed-Medium.ttf"),
-    "roboto-condensed-bold": require("../assets/fonts/Roboto_Condensed-Bold.ttf"),
-
-    // Variable Fonts
-    "funnel-variable": require("../assets/fonts/FunnelDisplay-VariableFont_wght.ttf"),
-    "inter-italic-variable": require("../assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf"),
-    "montserrat-italic-variable": require("../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf"),
-    "opensans-italic-variable": require("../assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf"),
-    "roboto-italic-variable": require("../assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf"),
-  });
-
-  useEffect(() => {
-    if (loaded && !error) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded, error]);
-
-  if (!loaded && !error) {
-    return null;
-  }
-
-  return <Stack />;
+export default function TabLayout() {
+  return (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: '#2196F3',
+        tabBarInactiveTintColor: '#666',
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopWidth: 1,
+          borderTopColor: '#e0e0e0',
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="(tabs)/home"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(tabs)/about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(tabs)/profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
 }
