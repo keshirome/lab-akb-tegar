@@ -1,17 +1,28 @@
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { students, type Student } from '../data/students';
 
 export default function ProfileScreen() {
+  const student = students.find((s: Student) => s.nim === '105841106222');
+
+  if (!student) {
+    return (
+      <View style={styles.container}>
+        <Text>Mahasiswa tidak ditemukan.</Text>
+      </View>
+    );
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Profil Mahasiswa</Text>
-        <Image source={require('../../assets/images/tegar.jpeg')} style={styles.image} />
+      <Image source={{ uri: student.photo }} style={styles.image} />
       <View style={styles.infoBox}>
-  <Text style={styles.label}>Nama Lengkap:</Text>
-  <Text style={styles.value}>TEGAR SURYA PRAYOGA</Text>
-  <Text style={styles.label}>NIM:</Text>
-  <Text style={styles.value}>105841106222</Text>
-  <Text style={styles.label}>Kelas:</Text>
-  <Text style={styles.value}>VI B</Text>
+        <Text style={styles.label}>Nama Lengkap:</Text>
+        <Text style={styles.value}>{student.name}</Text>
+        <Text style={styles.label}>NIM:</Text>
+        <Text style={styles.value}>{student.nim}</Text>
+        <Text style={styles.label}>Kelas:</Text>
+        <Text style={styles.value}>VI B</Text>
         <Text style={styles.label}>Jurusan:</Text>
         <Text style={styles.value}>Teknik Informatika</Text>
         <Text style={styles.label}>Fakultas:</Text>
