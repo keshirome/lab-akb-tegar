@@ -1,8 +1,10 @@
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { students, type Student } from '../../data/students';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function StudentDetail() {
+  const router = useRouter();
   const { nim } = useLocalSearchParams();
   const student = students.find((s: Student) => s.nim === nim);
 
@@ -16,6 +18,12 @@ export default function StudentDetail() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.headerRow}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+          <Ionicons name="chevron-back" size={20} color="#2196F3" />
+          <Text style={styles.backText}>Kembali</Text>
+        </TouchableOpacity>
+      </View>
       <Image source={{ uri: student.photo }} style={styles.photo} />
       <View style={styles.infoBox}>
         <Text style={styles.label}>Nama Lengkap</Text>
@@ -37,6 +45,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  headerRow: {
+    width: '100%',
+    marginBottom: 12,
+  },
+  backBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+  },
+  backText: {
+    color: '#2196F3',
+    marginLeft: 6,
+    fontSize: 14,
+    fontWeight: '600',
   },
   photo: {
     width: 160,
